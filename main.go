@@ -24,6 +24,8 @@ func main() {
 	buf, err := io.ReadAll(os.Stdin)
 	check(err)
 
+	buf = bytes.TrimSpace(buf)
+
 	// Remove quotes.
 	if bytes.HasPrefix(buf, []byte(`"`)) {
 		buf = buf[1:]
